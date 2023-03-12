@@ -1,5 +1,6 @@
+s.boot;
 // todo noise, sawtooth, squared,
-(SynthDef(\sax, { |out, freq=440, amp=0.1, gate=1|
+(x = SynthDef(\sax, { |out, freq=440, amp=0.1, gate=1|
 
 	var num = 16;
 	// generate [1,...16]=> get random values
@@ -33,15 +34,23 @@ m.action = { arg menu;
  [menu.value, menu.item].postln;
 };
 // add play button
-playBth = Button(w, Rect(10, 40, 50, 25));
-playBth.string = "play";
-// add stop buttion
-stopBtn = Button(w, Rect(10, 70, 50, 25));
-stopBtn.string = "stop";
-w.front;
+b = Button.new(w, Rect(10, 40, 50, 25)).states_([["Play", Color.black], ["Stop", Color.red]]);
+// b = Button(w, Rect(10, 40, 50, 25));
+// b.string = "play/stop";
+b.action_({
+	if (b.value == 1, {
+        x.play;
+	},{
+		s.free;
+		// Synth.free;
+
+	})
+});
 )
+
 // play
 (
-s = Synth.new(\sax);
+
+s = Synth(\sax);
 
 )
