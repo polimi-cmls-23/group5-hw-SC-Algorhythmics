@@ -33,12 +33,11 @@ m.action = { arg menu;
  [menu.value, menu.item].postln;
 };
 // add play button
-b = Button(w, Rect(10, 40, 50, 25));
-b.string = "play";
-w.front;
+playBth = Button(w, Rect(10, 40, 50, 25));
+playBth.string = "play";
 // add stop buttion
-b = Button(w, Rect(10, 70, 50, 25));
-b.string = "stop";
+stopBtn = Button(w, Rect(10, 70, 50, 25));
+stopBtn.string = "stop";
 w.front;
 )
 // play
